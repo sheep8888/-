@@ -3,7 +3,7 @@ from torch import nn
 import torch.nn.functional as F 
 
 class VggNet(nn.Module):
-    def __init__(self, in_channels, conv_arch, input_size=224):
+    def __init__(self, in_channels=1, conv_arch=((1, 64), (1, 128), (2, 256), (2, 512), (2, 512)), input_size=224):
         super(VggNet, self).__init__()
         num_blocks = len(conv_arch)
         minst_map_size = int(input_size/(2 ** num_blocks))
